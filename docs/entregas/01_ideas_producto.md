@@ -1,0 +1,12 @@
+# IDEAS DE PROYECTO
+
+- ## 1. Predicción de generación renovable y resiliencia del sistema eléctrico ante eventos meteorológicos extremos
+
+  La generación de energía renovable depende del clima, lo que la hace variable y puede complicar la planificación energética especialmente ante fenómenos extremos que podrían causar desajustes o cortes de suministro. El proyecto busca desarrollar modelos predictivos que estimen la generación de energía renovable y anticipen situaciones de riesgo, mejorando la resiliencia del sistema eléctrico ante fenómenos extremos. Su valor radica en el impacto económico y social, especialmente en un contexto de transición energética. La motivación personal surge de experiencias previas, como la realización de una prueba técnica y la observación de eventos críticos recientes en España como la DANA, Filomena y el apagón de un día, que evidencian la vulnerabilidad del sistema y el reto técnico de trabajar con datos complejos.
+
+- ## 2. Optimización de entrenamientos en deporte (patinaje artístico)
+
+  En el ámbito del deporte, los entrenamientos suelen planificarse de forma general, sin adaptarse al nivel, progreso o fatiga de cada deportista, lo que puede provocar estancamiento, ineficiencia o mayor riesgo de lesiones. Este proyecto lo quiero enfocar en personalizar los entrenamientos en patinaje artístico a partir de métricas como la evolución, la carga o la frecuencia, generando recomendaciones más ajustadas. Su valor radica en introducir un enfoque basado en datos en un ámbito poco explotado, mejorando el rendimiento y la salud de los atletas. A nivel personal, resulta especialmente relevante porque es un problema que he experimentado directamente en mi trabajo como monitora de patinaje.
+
+- ## 3. Retención de usuarios en apps
+  La retención de usuarios es un reto clave en aplicaciones digitales, ya que muchos usuarios la utilizan una vez y no vuelven, lo que reduce el valor del producto y aumenta los costes de adquisición. Este proyecto propone analizar el comportamiento de los usuarios para identificar patrones de abandono y desarrollar modelos predictivos que permitan anticipar el churn y mejorar la retención mediante cambios en la experiencia de usuario o estrategias de engagement. Su valor radica en el impacto directo sobre ingresos y fidelización. A nivel personal, resulta motivador porque combina análisis de datos con mi experiencia previa en front-end y UX/UI, permitiendo mejorar la interacción y el engagement de los usuarios.
