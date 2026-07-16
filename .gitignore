@@ -1,0 +1,4 @@
+.env
+.venv
+aemet_service.py
+ree_service.py
