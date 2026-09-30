@@ -1,0 +1,14 @@
+.pie-datos {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 1rem 0 .5rem;
+  font-size: .75rem;
+  color: var(--color-white);
+
+  .separador {
+    color: var(--color-white);
+  }
+}

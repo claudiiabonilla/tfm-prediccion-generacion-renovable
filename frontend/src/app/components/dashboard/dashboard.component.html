@@ -1,0 +1,113 @@
+<div class="dashboard-container">
+  <div class="header">
+    <div class="fecha">{{ fechaObjetivoFormateada }}</div>
+    <div class="right">
+      <div class="filtro-fecha" *ngIf="!cargando">
+        <div class="filtro-grupo">
+          <label for="fechaDesde">Desde</label>
+          <input
+            type="date"
+            id="fechaDesde"
+            [(ngModel)]="fechaDesde"
+            (change)="aplicarFiltroFecha()">
+        </div>
+
+        <div class="filtro-grupo">
+          <label for="fechaHasta">Hasta</label>
+          <input
+            type="date"
+            id="fechaHasta"
+            [(ngModel)]="fechaHasta"
+            (change)="aplicarFiltroFecha()">
+        </div>
+
+        <button class="btn-limpiar" (click)="limpiarFiltro()" *ngIf="fechaDesde || fechaHasta">
+          <i class="fa-solid fa-xmark"></i> Limpiar
+        </button>
+      </div>
+      <div>
+        POWERBI
+      </div>
+    </div>
+  </div>
+
+  <div class="kpi-row" *ngIf="!cargando">
+    <div class="kpi-card">
+      <span class="kpi-label">Predicción de generación</span>
+      <span class="kpi-value">{{ kpiPrediccion | number:'1.1-1' }} GWh</span>
+      <span class="kpi-variacion" [class.positivo]="kpiVariacion >= 0" [class.negativo]="kpiVariacion < 0">
+        <i class="fa-solid" [class.fa-caret-up]="kpiVariacion >= 0" [class.fa-caret-down]="kpiVariacion < 0"></i>
+        {{ kpiVariacion | number:'1.1-1' }}% vs ayer
+      </span>
+    </div>
+
+    <div class="kpi-card">
+      <span class="kpi-label">Generación día anterior</span>
+      <span class="kpi-value">{{ kpiGeneracionAyer | number:'1.1-1' }} GWh</span>
+      <span class="kpi-variacion" [class.positivo]="kpiVariacionGeneracionAyer >= 0" [class.negativo]="kpiVariacionGeneracionAyer < 0">
+        <i class="fa-solid" [class.fa-caret-up]="kpiVariacionGeneracionAyer >= 0" [class.fa-caret-down]="kpiVariacionGeneracionAyer < 0"></i>
+        {{ kpiVariacionGeneracionAyer | number:'1.1-1' }}% vs. anteayer
+      </span>
+    </div>
+
+    <div class="kpi-card">
+      <span class="kpi-label">Fiabilidad del modelo</span>
+      <span class="kpi-value">{{ kpiFiabilidad }}%</span>
+      <span class="kpi-sublabel">ventanas donde supera al baseline</span>
+    </div>
+
+    <div class="kpi-card">
+      <span class="kpi-label">Variación vs. media del mes</span>
+      <span class="kpi-value">{{ kpiVariacionMes | number:'1.1-1' }}%</span>
+    </div>
+  </div>
+
+  <div class="charts">
+    <div class="charts-row">
+      <div class="chart-block">
+        <h3>Comparación de modelos (MAE)</h3>
+        <div class="chart-canvas-wrapper">
+          <canvas #barChart></canvas>
+        </div>
+      </div>
+
+      <div class="chart-block">
+        <h3>Estabilidad del modalo (2022-2024)</h3>
+        <div class="chart-canvas-wrapper">
+          <canvas #backtestChart></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="charts-row">
+      <div class="chart-block chart-large">
+        <h3>Generación fotovoltaica: real vs. predicha</h3>
+        <div class="chart-canvas-wrapper">
+          <canvas #lineChart></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="meteo-block" *ngIf="!cargando">
+    <h3>Meteorología del día anterior</h3>
+
+    <div class="meteo-content">
+      <div class="meteo-gauges">
+        <div class="chart-canvas-wrapper small">
+          <canvas #temperatureGauge></canvas>
+            <span class="gauge-tmin">{{ meteoPrediccion.tmin | number:'1.0-0' }}°C</span>
+            <span class="gauge-tmax">{{ meteoPrediccion.tmax | number:'1.0-0' }}°C</span>
+            <span class="gauge-tmed">{{ meteoPrediccion.tmed | number:'1.0-0' }}°C</span>
+        </div>
+      </div>
+
+      <div class="meteo-grid">
+        <div class="meteo-item"><span>Precipitación</span><strong>{{ meteoPrediccion.prec | number:'1.1-1' }} mm</strong></div>
+        <div class="meteo-item"><span>Horas de sol</span><strong>{{ meteoPrediccion.sol | number:'1.1-1' }} h</strong></div>
+        <div class="meteo-item"><span>Humedad relativa</span><strong>{{ meteoPrediccion.hrMedia | number:'1.1-1' }}%</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer-datos></app-footer-datos>
+</div>

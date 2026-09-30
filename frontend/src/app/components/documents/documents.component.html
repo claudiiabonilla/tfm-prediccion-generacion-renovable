@@ -1,0 +1,214 @@
+<div class="ficha-container">
+
+  <header class="ficha-header"></header>
+  <body>
+    <section class="ficha-section">
+      <div class="ficha-columna">
+        <h2>Ficha del modelo</h2>
+
+        <p class="subtitulo">
+          Documentación técnica del modelo predictivo de generación fotovoltaica
+        </p>
+      </div>
+      <div class="ficha-columna">
+        <h3>Objetivo</h3>
+
+        <p>
+          Predecir la generación fotovoltaica nacional de la siguiente jornada
+          (granularidad diaria) a partir del histórico de generación de REE
+          y las condiciones meteorológicas de AEMET.
+        </p>
+      </div>
+
+    </section>
+
+    <section class="ficha-section">
+      <div class="ficha-columna">
+
+        <h3>Modelo y configuración</h3>
+
+        <p>
+          <strong>Regresión Lineal.</strong> Es el modelo seleccionado entre
+          los candidatos evaluados: Regresión Lineal, Random Forest y
+          Gradient Boosting.
+        </p>
+
+        <p>
+          La selección se basa en su rendimiento frente al baseline histórico,
+          superándolo de forma consistente durante la evaluación temporal.
+        </p>
+
+        <ul>
+          <li><strong>Horizonte:</strong> siguiente jornada</li>
+          <li><strong>Granularidad:</strong> diaria</li>
+          <li><strong>Validación:</strong> temporal</li>
+          <li><strong>Backtesting:</strong> 18 ventanas</li>
+          <li><strong>Ventana de evaluación:</strong> 60 días</li>
+        </ul>
+
+      </div>
+      <div class="ficha-columna">
+
+        <h3>Datos y variables utilizadas</h3>
+
+        <p>
+          El modelo combina información histórica de generación fotovoltaica
+          con variables meteorológicas y temporales.
+        </p>
+
+        <ul>
+          <li>
+            <strong>REE:</strong> generación fotovoltaica nacional histórica.
+          </li>
+
+          <li>
+            <strong>AEMET:</strong> temperatura, precipitación, viento,
+            humedad, presión y horas de sol.
+          </li>
+
+          <li>
+            <strong>Lags:</strong> generación del día anterior y de hace 7 días.
+          </li>
+
+          <li>
+            <strong>Media móvil:</strong> generación media de los últimos 7 días.
+          </li>
+
+          <li>
+            <strong>Calendario:</strong> día de la semana, mes y día del año.
+          </li>
+        </ul>
+
+        <div class="nota">
+          <i class="fa-solid fa-circle-info"></i>
+          <p>Las variables meteorológicas corresponden al <strong>día anterior</strong> a la predicción. De esta forma, no se utiliza información posterior al momento de realizar la predicción.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="ficha-section">
+      <div class="ficha-columna">
+
+        <h3>Rendimiento</h3>
+
+        <div class="metricas-grid">
+
+          <div class="metrica">
+            <span class="metrica-valor">+11,2%</span>
+            <span class="metrica-label">
+              Mejora vs. baseline (test)
+            </span>
+          </div>
+
+          <div class="metrica">
+            <span class="metrica-valor">+7,18%</span>
+            <span class="metrica-label">
+              Mejora media (backtesting)
+            </span>
+          </div>
+
+          <div class="metrica">
+            <span class="metrica-valor">18 / 18</span>
+            <span class="metrica-label">
+              Ventanas donde supera al baseline
+            </span>
+          </div>
+
+        </div>
+
+        <p>
+          La validación se realizó respetando el orden temporal de los datos,
+          mediante backtesting con 18 ventanas deslizantes de 60 días.
+        </p>
+
+      </div>
+
+      <div class="ficha-columna">
+
+        <h3>Variables con mayor peso</h3>
+
+        <p>
+          La generación del día anterior presenta el mayor peso predictivo
+          dentro del modelo.
+        </p>
+
+        <ul>
+          <li>Generación del día anterior</li>
+          <li>Temperatura máxima del día anterior</li>
+          <li>Temperatura mínima del día anterior</li>
+          <li>Media móvil de generación de 7 días</li>
+        </ul>
+
+        <p>
+          Estos resultados sugieren que la información meteorológica aporta
+          señal predictiva adicional al comportamiento histórico de la
+          generación.
+        </p>
+
+      </div>
+
+    </section>
+
+    <section class="ficha-section">
+      <div class="ficha-columna limitaciones">
+
+        <h3>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          Limitaciones
+        </h3>
+
+        <ul>
+          <li>
+            El modelo utiliza meteorología del día anterior y no un
+            forecast meteorológico real del día predicho.
+          </li>
+
+          <li>
+            Existe colinealidad entre las variables de temperatura
+            (tmed, tmin y tmax), lo que puede introducir cierta
+            inestabilidad en los coeficientes.
+          </li>
+
+          <li>
+            El modelo no incorpora actualmente la demanda eléctrica
+            ni otras variables del sistema eléctrico.
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="ficha-columna ampliaciones">
+
+        <h3>
+          <i class="fa-solid fa-arrow-up-right-dots"></i>
+          Posibles ampliaciones
+        </h3>
+
+        <ul>
+          <li>
+            Incorporar previsiones meteorológicas reales para el día objetivo.
+          </li>
+
+          <li>
+            Incorporar demanda eléctrica y otras variables del sistema.
+          </li>
+
+          <li>
+            Ampliar el modelo a otras tecnologías renovables.
+          </li>
+
+          <li>
+            Incorporar análisis de resiliencia ante eventos meteorológicos extremos.
+          </li>
+
+          <li>
+            Evolucionar hacia predicciones con mayor granularidad temporal.
+          </li>
+        </ul>
+
+      </div>
+    </section>
+  </body>
+</div>

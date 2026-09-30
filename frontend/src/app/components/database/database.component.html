@@ -1,0 +1,31 @@
+<div class="datos-container">
+  <header class="header"></header>
+  <body>
+    <h2>Datos del proyecto</h2>
+    <p>Vista previa y descarga de los conjuntos de datos utilizados y generados por el modelo predictivo.</p>
+
+    <div class="dataset-block" *ngFor="let ds of datasets">
+      <div class="dataset-header">
+        <h3>{{ ds.nombre }}</h3>
+        <a [href]="ds.archivo" [download]="ds.archivo.split('/').pop()" class="btn-descarga">
+          <i class="far fa-arrow-alt-circle-down"></i> Descargar CSV
+        </a>
+      </div>
+
+      <div class="table-container">
+        <table class="preview-table" *ngIf="ds.columnas.length > 0">
+          <thead>
+            <tr>
+              <th *ngFor="let col of ds.columnas">{{ col }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fila of ds.filasPreview">
+              <td *ngFor="let valor of fila">{{ valor }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</div>

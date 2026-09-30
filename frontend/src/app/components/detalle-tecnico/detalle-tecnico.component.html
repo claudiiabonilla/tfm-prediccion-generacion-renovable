@@ -1,0 +1,27 @@
+<div class="detalle-container">
+  <div class="header">
+    POWERBI
+  </div>
+  
+  <div class="kpi-card">
+    <span class="kpi-label">Ventanas que superan al baseline</span>
+    <span class="kpi-value">{{ kpiVentanasPositivas }} / {{ backtestingCompleto.length }}</span>
+  </div>
+
+  <div class="charts">
+    <div class="chart-block">
+      <h3>Estabilidad del modelo (backtesting)</h3>
+      <div class="chart-canvas-wrapper">
+        <canvas #backtestChart></canvas>
+      </div>
+    </div>
+
+    <div class="chart-block">
+      <h3>Error del modelo por mes (MAE)</h3>
+      <div class="chart-canvas-wrapper">
+        <canvas #errorMesChart></canvas>
+      </div>
+    </div>
+  </div>
+  <app-footer-datos></app-footer-datos>
+</div>

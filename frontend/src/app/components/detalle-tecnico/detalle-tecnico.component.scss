@@ -1,0 +1,27 @@
+.detalle-container {
+  height: 100%;
+  width: 100%;
+  color: var(--color-white);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 5rem 10rem 1fr 5rem;
+  gap: 1.5rem;
+
+    .kpi-card {
+      height: 100%;
+      grid-column: 4 / 5;
+    }
+
+  .charts {
+    grid-column: span 4;
+    height: 100%;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .chart-block {
+    background: var(--color-white-opacity);
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,24 @@
+<div class="dias-baja-container" *ngIf="!cargando">
+  <div class="header">
+    POWERBI
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <span class="kpi-label">Nº de jornadas de baja generación</span>
+      <span class="kpi-value">{{ kpiConteo }}</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">% sobre el total de jornadas</span>
+      <span class="kpi-value">{{ kpiPorcentaje | number:'1.1-1' }}%</span>
+    </div>
+  </div>
+
+  <div class="chart-block">
+    <h3>Horas de sol vs. generación</h3>
+    <div class="chart-canvas-wrapper">
+      <canvas #scatterChart></canvas>
+    </div>
+  </div>
+  <app-footer-datos></app-footer-datos>
+</div>

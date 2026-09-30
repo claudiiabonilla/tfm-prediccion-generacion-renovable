@@ -1,0 +1,29 @@
+<div class="chatbot-window" *ngIf="visibilidad.abierto()">
+  <div class="chatbot-header">
+    <span>Asistente del modelo</span>
+    <button class="chatbot-close" (click)="cerrar()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="chatbot-mensajes">
+    <div
+      *ngFor="let msg of mensajes"
+      class="mensaje"
+      [class.usuario]="msg.esUsuario"
+      [class.bot]="!msg.esUsuario">
+      {{ msg.texto }}
+    </div>
+  </div>
+
+  <div class="chatbot-input">
+    <input
+      type="text"
+      [(ngModel)]="mensajeActual"
+      (keyup.enter)="enviarMensaje()"
+      placeholder="Escribe tu pregunta..." />
+    <button (click)="enviarMensaje()">
+      <i class="fa-solid fa-paper-plane"></i>
+    </button>
+  </div>
+</div>

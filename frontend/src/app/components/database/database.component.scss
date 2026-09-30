@@ -1,0 +1,94 @@
+.datos-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-dark);
+
+  .header {
+    height: 15rem;
+    background-image: url(/assets/img/soleado.png);
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  h2 {
+    font-size: 5rem;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+  .subtitulo {
+    font-size: 1.25rem;
+  }
+
+  body {
+    height: calc(100% - 15rem);
+    width: 100%;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .dataset-block {
+      background-color: var(--color-white-opacity);
+      box-shadow: inset 0 0 12px var(--color-dark);
+      border-radius: .5rem;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      width: 100%;
+      height: auto;
+      flex: 0 0 auto;
+
+      .dataset-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn-descarga {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem 1rem;
+            text-decoration: none;
+            border-radius: .375rem;
+            transition: background-color 0.2s;
+            color: var(--color-white);
+
+            &:hover {
+              background-color: var(--color-orange);
+            }
+        }
+      }
+
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+
+        .preview-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: .8125rem;
+
+          th, td {
+            padding: .375rem .625rem;
+            text-align: left;
+            border-bottom: 1px solid var(--color-grey);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 9.375rem;
+          }
+
+          th {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

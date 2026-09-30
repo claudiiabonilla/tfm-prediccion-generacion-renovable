@@ -1,0 +1,30 @@
+<div class="app-layout" [style.background-image]="'url(' + fondoSeleccionado + ')'">
+  <div class="background-overlay"></div>
+
+  <nav class="sidebar">
+    <div class="sidebar-icon" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <i class="fas fa-house"></i>
+    </div>
+    <div class="sidebar-icon" routerLink="/detalle-tecnico" routerLinkActive="active">
+      <i class="fas fa-chart-column"></i>
+    </div>
+    <div class="sidebar-icon" routerLink="/dias-baja-generacion" routerLinkActive="active">
+      <i class="fas fa-bolt"></i>
+    </div>
+    <div class="sidebar-icon" routerLink="/datos" routerLinkActive="active">
+      <i class="fas fa-database"></i>
+    </div>
+    <div class="sidebar-icon" (click)="chatbotVisibilidad.toggle()">
+      <i class="far fa-comment-dots"></i>
+    </div>
+    <div class="sidebar-icon" routerLink="/documentos" routerLinkActive="active">
+      <i class="far fa-file-alt"></i>
+    </div>
+  </nav>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+  <app-chatbot></app-chatbot>
+</div>
+
